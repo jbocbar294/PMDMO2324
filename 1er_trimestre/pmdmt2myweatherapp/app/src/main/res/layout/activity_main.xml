@@ -1,0 +1,211 @@
+ñ<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:text="Temperaturas"
+        android:textSize="100px"
+        android:textAlignment="center"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"/>
+
+    <TableRow>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text=" "
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="Dic 7"
+            android:textAlignment="center"
+            android:textColor="#FF0000"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="Dic 8"
+            android:textAlignment="center"
+            android:textColor="#FF0000"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="Dic 9"
+            android:textAlignment="center"
+            android:textColor="#FF0000"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="Dic 10"
+            android:textAlignment="center"
+            android:textColor="#FF0000"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="Dic 11"
+            android:textAlignment="center"
+            android:textColor="#FF0000"
+            android:textStyle="bold"/>
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="Máximas"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="28º"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="26º"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="23º"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="17º"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="19º"
+            android:textAlignment="center"/>
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="Mínimas"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="15º"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="14º"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="3º"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="5º"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="6º"
+            android:textAlignment="center"/>
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="Estado"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/soleado"
+            android:textAlignment="center"/>
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/nublado"
+            android:textAlignment="center"/>
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/soleado"
+            android:textAlignment="center"/>
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/nublado"
+            android:textAlignment="center"/>
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/nublado"
+            android:textAlignment="center"/>
+
+    </TableRow>
+
+
+
+</TableLayout>
