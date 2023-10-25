@@ -1,0 +1,30 @@
+<resources>
+
+    <string name="app_name">pmdm-tresenraya</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello World!</string>
+
+    <string name="puntuacion_jugador">Jugador:</string>
+    <string name="puntuacion_maquina">Máquina:</string>
+    <string name="puntuacion_partidas">Partidas:</string>
+
+    <string name="primero_jugador">Tú primero</string>
+    <string name="primero_maquina">Android irá primero</string>
+
+    <string name="turno_jugador">Tu turno</string>
+    <string name="turno_maquina">Turno de Android</string>
+
+    <string name="result_tie">Empate</string>
+    <string name="result_human_wins">¡ GANASTE !</string>
+    <string name="result_computer_wins">¡ Android gana !</string>
+
+    <string name="dificultad">Selecciona un nivel de dificultad:</string>
+    <string name="dificultad_facil">Fácil</string>
+    <string name="dificultad_duro">Duro</string>
+    <string name="dificultad_experto">Experto</string>
+
+    <string name="salir">¿Seguro que deseas salir?</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+
+</resources>
