@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -104,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
     private void controlarTurno() {
         if (mTurno == JuegoTresEnRaya.JUGADOR) {
             mInfoTexto.setText(R.string.primero_jugador);
+
         } else if (mTurno == JuegoTresEnRaya.MAQUINA) {
             // 1. Determinamos la posición según nivel
             int casilla = mJuego.getMovimientoMaquina();
@@ -150,10 +152,9 @@ public class MainActivity extends AppCompatActivity {
                 mTurno = JuegoTresEnRaya.MAQUINA;
             } else if (jugador == JuegoTresEnRaya.MAQUINA) {
                 mTurno = JuegoTresEnRaya.JUGADOR;
-
-                // 5. Siguiente turno
-                controlarTurno();
             }
+            // 5. Siguiente turno
+            controlarTurno();
         }
     }
 
@@ -180,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void onClick(View boton) {
+    public void onClick(View boton) {
         // 1. Localizamos cuál es el botón pulsado y su número de casilla correcto
         int id = boton.getId();
         String descripcionBoton = ((Button)findViewById(id)).getContentDescription().toString();
