@@ -28,11 +28,12 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
 
-    <string name="newGame">New Game</string>
+    <string name="restartGame">New Game</string>
     <string name="reiniciar">Do you want to restart the game?</string>
     <string name="reiniciarMsg">All points will be set to 0.</string>
     <string name="empezarPartidaNueva">Do you want to start another game?</string>
     <string name="dialogoEmpiezaPartida">Game starts, GLHF!</string>
     <string name="preguntaReinciar">Do you want to restart the game?</string>
+    <string name="newGame">Next Game</string>
 
 </resources>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">pmdm-tresenraya</string>
+    <string name="app_name">Tres En Raya</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello World!</string>
 
@@ -31,7 +31,9 @@
     <string name="reiniciar">¿Quieres reiniciar la partida?</string>
     <string name="reiniciarMsg">Los puntos se pondrán todos a 0.</string>
 
-    <string name="newGame">Nuevo Juego</string>
+    <string name="newGame">Siguiente Partida</string>
+
+    <string name="restartGame">Reiniciar Juego</string>
 
     <string name="empezarPartidaNueva">¿Quieres empezar otra partida?</string>
 

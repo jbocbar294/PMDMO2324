@@ -4,11 +4,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
-import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.speech.tts.TextToSpeech;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -49,6 +48,12 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     private MediaPlayer mJugadorMediaPlayer;
     private MediaPlayer mBackgroundMusicPlayer;
 
+    public void onInit(int i) {
+        sintetizador.setLanguage(Locale.getDefault());
+        sintetizador.setSpeechRate(1);
+        sintetizador.setPitch(1);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,12 +86,6 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         comenzarJuego();
     }
 
-    public void onInit(int i) {
-        sintetizador.setLanguage(Locale.getDefault());
-        sintetizador.setSpeechRate(1);
-        sintetizador.setPitch(1);
-    }
-
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);
@@ -104,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
         // Comienzo de la música de fondo (con bucle)
         mBackgroundMusicPlayer.setLooping(true);
-        //mBackgroundMusicPlayer.start();
+        // mBackgroundMusicPlayer.start();
     }
 
 
@@ -120,6 +119,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
 
     private void comenzarJuego() {
+
         // Reinicio de la lógica del tablero
         mJuego.limpiarTablero();
 
@@ -130,7 +130,9 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         }
 
         // Toast para indicar que empieza el juego
-        Toast.makeText(this, R.string.dialogoEmpiezaPartida,Toast.LENGTH_LONG).show();
+        Toast.makeText(this, R.string.dialogoEmpiezaPartida,Toast.LENGTH_SHORT).show();
+
+        hablar(this.getString(R.string.dialogoEmpiezaPartida));
 
         // Reinicio de los botones del layout
         for (int i = 0; i < mBotonesTablero.length; i++) {
@@ -146,6 +148,9 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             mInfoTexto.setText(R.string.primero_jugador);
 
         } else if (mTurno == JuegoTresEnRaya.MAQUINA) {
+
+            mInfoTexto.setText(R.string.primero_maquina);
+
             // 1. Determinamos la posición según nivel
             int casilla = mJuego.getMovimientoMaquina();
 
@@ -176,8 +181,8 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
             // Comienza el efecto de sonido
             mJugadorMediaPlayer.start();
+            mInfoTexto.setText(R.string.turno_maquina);
         } else {
-            // mBotonesTablero[casilla].setTextColor(Color.rgb(200, 0 ,0));
             mBotonesTablero[casilla].setBackgroundResource(R.drawable.maquina);
         }
 
@@ -207,12 +212,12 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             mInfoTexto.setText(R.string.result_human_wins);
             contadorHumano++;
             tvHumano.setText(String.valueOf(contadorHumano));
-            Toast.makeText(this, R.string.result_human_wins,Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.result_human_wins,Toast.LENGTH_SHORT).show();
         } else if (estado == 2) {
             mInfoTexto.setText(R.string.result_computer_wins);
             contadorAndroid++;
             tvAndroid.setText(String.valueOf(contadorAndroid));
-            Toast.makeText(this, R.string.result_computer_wins,Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.result_computer_wins,Toast.LENGTH_SHORT).show();
         }
         tvPartidas.setText(String.valueOf(contadorAndroid+contadorHumano));
         return estado;
@@ -261,9 +266,32 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
     }
 
-    public void botonNewGame (View boton) {
+    public void botonNewGame(View boton) {
 
-        hablar(String.valueOf(R.string.preguntaReinciar));
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle(R.string.empezarPartidaNueva);
+
+        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                comenzarJuego();
+            }
+        });
+        builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User cancelled the dialog
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+    }
+
+
+    public void botonRestartGame(View boton) {
+
+        hablar(this.getString(R.string.preguntaReinciar));
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
