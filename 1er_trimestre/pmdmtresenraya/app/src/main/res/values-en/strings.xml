@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">pmdm-tresenraya</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello World!</string>
+
+    <string name="puntuacion_jugador">Player:</string>
+    <string name="puntuacion_maquina">Machine:</string>
+    <string name="puntuacion_partidas">Games:</string>
+
+    <string name="primero_jugador">You first</string>
+    <string name="primero_maquina">Andoid goes first</string>
+
+    <string name="turno_jugador">Your turn</string>
+    <string name="turno_maquina">Android´s turn</string>
+
+    <string name="result_tie">Tie</string>
+    <string name="result_human_wins">¡ YOU WIN !</string>
+    <string name="result_computer_wins">¡ Android wins !</string>
+
+    <string name="dificultad">Select difficulty:</string>
+    <string name="dificultad_facil">Easy</string>
+    <string name="dificultad_duro">Hard</string>
+    <string name="dificultad_experto">Expert</string>
+
+    <string name="salir">Are you sure you want to exit?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="newGame">New Game</string>
+    <string name="reiniciar">Do you want to restart the game?</string>
+    <string name="reiniciarMsg">All points will be set to 0.</string>
+    <string name="empezarPartidaNueva">Do you want to start another game?</string>
+    <string name="dialogoEmpiezaPartida">Game starts, GLHF!</string>
+    <string name="preguntaReinciar">Do you want to restart the game?</string>
+
+</resources>

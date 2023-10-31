@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">pmdm-tresenraya</string>
@@ -26,5 +27,16 @@
     <string name="salir">¿Seguro que deseas salir?</string>
     <string name="yes">Sí</string>
     <string name="no">No</string>
+
+    <string name="reiniciar">¿Quieres reiniciar la partida?</string>
+    <string name="reiniciarMsg">Los puntos se pondrán todos a 0.</string>
+
+    <string name="newGame">Nuevo Juego</string>
+
+    <string name="empezarPartidaNueva">¿Quieres empezar otra partida?</string>
+
+    <string name="dialogoEmpiezaPartida">Comienza la partida, suerte!</string>
+
+    <string name="preguntaReinciar">¿Quieres reiniciar la partida?</string>
 
 </resources>

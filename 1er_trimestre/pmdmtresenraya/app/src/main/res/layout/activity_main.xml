@@ -115,6 +115,15 @@
 
             </TableRow>
 
+            <Button
+                android:id="@+id/botonNewGame"
+                android:contentDescription="@string/newGame"
+                android:onClick="botonNewGame"
+                android:text="@string/newGame"
+                android:textSize="30sp"
+                android:layout_height="100dp"
+                android:layout_width="100dp"/>
+
         </TableLayout>
     
         <TableLayout

@@ -1,18 +1,33 @@
 package pmdm.t2.tres_en_raya;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Locale;
 
 import pmdm.t2.pmdm_tresenraya.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
+
+    private int contadorHumano = 0;
+    private int contadorAndroid = 0;
+
+    private TextToSpeech sintetizador; // objeto TextToSpeech que usaremos para que la app hable
+
+    private TextView tvHumano;
+    private TextView tvAndroid;
+    private TextView tvPartidas;
 
     private JuegoTresEnRaya mJuego;
 
@@ -34,12 +49,12 @@ public class MainActivity extends AppCompatActivity {
     private MediaPlayer mJugadorMediaPlayer;
     private MediaPlayer mBackgroundMusicPlayer;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        sintetizador = new TextToSpeech(this, this);
 
         // Referencia de los botones del tablero
         mBotonesTablero = new Button[JuegoTresEnRaya.DIM_TABLERO];
@@ -58,9 +73,24 @@ public class MainActivity extends AppCompatActivity {
 
         // Ejecución inicial de la lógica del videojuego
         mJuego = new JuegoTresEnRaya();
+
+        tvHumano = findViewById(R.id.player_score);
+        tvAndroid = findViewById(R.id.computer_score);
+        tvPartidas = findViewById(R.id.tie_score);
+
         comenzarJuego();
     }
 
+    public void onInit(int i) {
+        sintetizador.setLanguage(Locale.getDefault());
+        sintetizador.setSpeechRate(1);
+        sintetizador.setPitch(1);
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+        super.onPointerCaptureChanged(hasCapture);
+    }
 
     @Override
     protected void onResume() {
@@ -74,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Comienzo de la música de fondo (con bucle)
         mBackgroundMusicPlayer.setLooping(true);
-        mBackgroundMusicPlayer.start();
+        //mBackgroundMusicPlayer.start();
     }
 
 
@@ -92,6 +122,15 @@ public class MainActivity extends AppCompatActivity {
     private void comenzarJuego() {
         // Reinicio de la lógica del tablero
         mJuego.limpiarTablero();
+
+        // Reinicio de las imágenes de los botones del layout
+        for (int i = 0; i < mBotonesTablero.length; i++) {
+            mBotonesTablero[i].setBackgroundResource(R.drawable.fondo_gris);
+            mBotonesTablero[i].setEnabled(true);
+        }
+
+        // Toast para indicar que empieza el juego
+        Toast.makeText(this, R.string.dialogoEmpiezaPartida,Toast.LENGTH_LONG).show();
 
         // Reinicio de los botones del layout
         for (int i = 0; i < mBotonesTablero.length; i++) {
@@ -159,15 +198,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private int comprobarEstadoJuego() {
+
         // 1. Comprobar el estado principal del tablero
         int estado = mJuego.comprobarGanador();
 
         // 2. Representar estado del juego
         if (estado == 1) {
             mInfoTexto.setText(R.string.result_human_wins);
+            contadorHumano++;
+            tvHumano.setText(String.valueOf(contadorHumano));
+            Toast.makeText(this, R.string.result_human_wins,Toast.LENGTH_LONG).show();
         } else if (estado == 2) {
             mInfoTexto.setText(R.string.result_computer_wins);
+            contadorAndroid++;
+            tvAndroid.setText(String.valueOf(contadorAndroid));
+            Toast.makeText(this, R.string.result_computer_wins,Toast.LENGTH_LONG).show();
         }
+        tvPartidas.setText(String.valueOf(contadorAndroid+contadorHumano));
         return estado;
     }
 
@@ -179,6 +226,25 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < mBotonesTablero.length; i++) {
             mBotonesTablero[i].setEnabled(false);
         }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle(R.string.empezarPartidaNueva);
+
+        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                comenzarJuego();
+            }
+        });
+        builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User cancelled the dialog
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
     }
 
     public void onClick(View boton) {
@@ -193,5 +259,45 @@ public class MainActivity extends AppCompatActivity {
             colocarFichaEnTablero(JuegoTresEnRaya.JUGADOR, casilla);
         }
 
+    }
+
+    public void botonNewGame (View boton) {
+
+        hablar(String.valueOf(R.string.preguntaReinciar));
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle(R.string.reiniciar);
+        builder.setMessage(R.string.reiniciarMsg);
+
+        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+
+                contadorHumano=0;
+                contadorAndroid=0;
+
+                tvHumano.setText("0");
+                tvAndroid.setText("0");
+                tvPartidas.setText("0");
+
+                comenzarJuego();
+
+            }
+        }
+        );
+        builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User cancelled the dialog
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+    }
+
+    public void hablar(String msg) {
+
+        sintetizador.speak(msg, TextToSpeech.QUEUE_FLUSH,null,null);
     }
 }
