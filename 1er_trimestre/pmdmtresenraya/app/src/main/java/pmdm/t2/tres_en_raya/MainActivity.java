@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
         // Comienzo de la música de fondo (con bucle)
         mBackgroundMusicPlayer.setLooping(true);
-        // mBackgroundMusicPlayer.start();
+        mBackgroundMusicPlayer.start();
     }
 
 
@@ -299,19 +299,19 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         builder.setMessage(R.string.reiniciarMsg);
 
         builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
+                    public void onClick(DialogInterface dialog, int id) {
 
-                contadorHumano=0;
-                contadorAndroid=0;
+                        contadorHumano=0;
+                        contadorAndroid=0;
 
-                tvHumano.setText("0");
-                tvAndroid.setText("0");
-                tvPartidas.setText("0");
+                        tvHumano.setText("0");
+                        tvAndroid.setText("0");
+                        tvPartidas.setText("0");
 
-                comenzarJuego();
+                        comenzarJuego();
 
-            }
-        }
+                    }
+                }
         );
         builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {

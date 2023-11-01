@@ -10,7 +10,7 @@
     <string name="puntuacion_partidas">Partidas:</string>
 
     <string name="primero_jugador">Tú primero</string>
-    <string name="primero_maquina">Android irá primero</string>
+    <string name="primero_maquina">Android primero</string>
 
     <string name="turno_jugador">Tu turno</string>
     <string name="turno_maquina">Turno de Android</string>
