@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
@@ -19,11 +18,13 @@ import pmdm.t2.pmdm_tresenraya.R;
 
 public class MainActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
 
+    // Contadores para las victorias del jugador y de la máquina
     private int contadorHumano = 0;
     private int contadorAndroid = 0;
 
     private TextToSpeech sintetizador; // objeto TextToSpeech que usaremos para que la app hable
 
+    // TextViews para actualizar las victorias
     private TextView tvHumano;
     private TextView tvAndroid;
     private TextView tvPartidas;
@@ -45,10 +46,12 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     // Determina si ha acabado el juego
     private boolean gameOver = false;
 
+    // Objetos que reproducen sonidos y música de fondo
     private MediaPlayer mJugadorMediaPlayer;
     private MediaPlayer mBackgroundMusicPlayer;
 
     public void onInit(int i) {
+        // Idioma, velocidad y tono para hablar
         sintetizador.setLanguage(Locale.getDefault());
         sintetizador.setSpeechRate(1);
         sintetizador.setPitch(1);
@@ -130,9 +133,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         }
 
         // Toast para indicar que empieza el juego
-        Toast.makeText(this, R.string.dialogoEmpiezaPartida,Toast.LENGTH_SHORT).show();
-
-        hablar(this.getString(R.string.dialogoEmpiezaPartida));
+        Toast.makeText(this, R.string.dialogoComienzaPartida,Toast.LENGTH_SHORT).show();
 
         // Reinicio de los botones del layout
         for (int i = 0; i < mBotonesTablero.length; i++) {
@@ -203,22 +204,32 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     }
 
     private int comprobarEstadoJuego() {
-
         // 1. Comprobar el estado principal del tablero
         int estado = mJuego.comprobarGanador();
 
         // 2. Representar estado del juego
         if (estado == 1) {
+            // Actualiza el texto
             mInfoTexto.setText(R.string.result_human_wins);
+            // Aumenta el contador de victorias del jugador
             contadorHumano++;
+            // Actualiza el textview
             tvHumano.setText(String.valueOf(contadorHumano));
+
             Toast.makeText(this, R.string.result_human_wins,Toast.LENGTH_SHORT).show();
+
         } else if (estado == 2) {
+            // Actualiza el texto
             mInfoTexto.setText(R.string.result_computer_wins);
+            // Aumenta el contador de victorias de la máquina
             contadorAndroid++;
+            // Actualiza el textview
             tvAndroid.setText(String.valueOf(contadorAndroid));
+
             Toast.makeText(this, R.string.result_computer_wins,Toast.LENGTH_SHORT).show();
         }
+
+        // Actualiza el textview de contador de partidas
         tvPartidas.setText(String.valueOf(contadorAndroid+contadorHumano));
         return estado;
     }
@@ -267,7 +278,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     }
 
     public void botonNewGame(View boton) {
-
+        // Pregunta si quiere empezar otra partida, en caso afirmativo empieza otra partida, limpiando el tablero
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle(R.string.empezarPartidaNueva);
@@ -293,6 +304,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
         hablar(this.getString(R.string.preguntaReinciar));
 
+        // Pregunta si quiere reiniciar la partida, en caso afirmativo reinicia los contadores y actualiza los textviews
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle(R.string.reiniciar);
@@ -324,6 +336,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
     }
 
+    // Método para hablar
     public void hablar(String msg) {
 
         sintetizador.speak(msg, TextToSpeech.QUEUE_FLUSH,null,null);
