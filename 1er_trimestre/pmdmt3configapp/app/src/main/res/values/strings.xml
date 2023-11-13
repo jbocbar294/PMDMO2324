@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ConfigApp</string>
+
+    <!-- Acciones del menú -->
+    <string name="save_settings">Guardar configuración</string>
+    <string name="load_settings">Recuperar configuración</string>
+    <string name="reset_settings">Resetear configuración</string>
+
+</resources>
