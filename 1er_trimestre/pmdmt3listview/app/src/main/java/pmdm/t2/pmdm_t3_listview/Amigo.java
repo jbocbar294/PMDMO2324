@@ -11,8 +11,4 @@ public class Amigo {
     public String getNif() {
         return nif;
     }
-
-    public void setNif(String nif) {
-        this.nif = nif;
-    }
 }
