@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fffaf4">
+
+    <TextView
+        android:id="@+id/tvGrados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="LOREM IPSUM"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="80dp"/>
+
+    <TextView
+        android:id="@+id/tvDireccion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="LOREM IPSUM"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="120dp"/>
+
+    <ImageView
+        android:layout_width="650px"
+        android:layout_height="650px"
+        android:src="@drawable/brujula"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center"/>
+
+    <ImageView
+        android:id="@+id/aguja"
+        android:layout_width="38px"
+        android:layout_height="381px"
+        android:src="@drawable/aguja"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center"/>
+
+</FrameLayout>

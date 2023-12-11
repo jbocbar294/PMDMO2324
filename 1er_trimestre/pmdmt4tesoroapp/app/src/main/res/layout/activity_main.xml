@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/layout">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/f1c1"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+        <ImageView
+            android:id="@+id/f1c2"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+        <ImageView
+            android:id="@+id/f1c3"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+        <ImageView
+            android:id="@+id/f1c4"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+        <ImageView
+            android:id="@+id/f1c5"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/f2c1"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+        <ImageView
+            android:id="@+id/f2c2"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+        <ImageView
+            android:id="@+id/f2c3"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+        <ImageView
+            android:id="@+id/f2c4"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+        <ImageView
+            android:id="@+id/f2c5"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/f3c1"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+        <ImageView
+            android:id="@+id/f3c2"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+        <ImageView
+            android:id="@+id/f3c3"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+        <ImageView
+            android:id="@+id/f3c4"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+        <ImageView
+            android:id="@+id/f3c5"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/f4c1"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+        <ImageView
+            android:id="@+id/f4c2"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+        <ImageView
+            android:id="@+id/f4c3"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+        <ImageView
+            android:id="@+id/f4c4"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+        <ImageView
+            android:id="@+id/f4c5"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/f5c1"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+        <ImageView
+            android:id="@+id/f5c2"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+        <ImageView
+            android:id="@+id/f5c3"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+        <ImageView
+            android:id="@+id/f5c4"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+        <ImageView
+            android:id="@+id/f5c5"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_margin="3dp"
+            android:background="@drawable/stone" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
