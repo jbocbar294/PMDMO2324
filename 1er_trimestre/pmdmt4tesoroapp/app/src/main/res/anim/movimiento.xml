@@ -10,7 +10,7 @@
         android:toXScale="0%"
         android:fromYScale="100%"
         android:toYScale="0"
-        android:duration="250"
+        android:duration="500"
         />
 
 </set>

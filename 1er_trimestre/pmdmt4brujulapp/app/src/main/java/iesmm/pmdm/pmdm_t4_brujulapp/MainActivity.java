@@ -16,23 +16,23 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     private SensorManager sensorManager; // Gestor de sensores
     private Sensor brujula; // Objeto sensor a medir
-    TextView tvGrados;
-    TextView tvDireccion;
-    ImageView ivAguja;
+    TextView tvGrados; // textview que muestra los grados
+    TextView tvDireccion; // textview que muestra la dirección
+    ImageView ivAguja; // imageview de la aguja
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // inicializamos los componentes
         tvGrados = findViewById(R.id.tvGrados);
         tvDireccion = findViewById(R.id.tvDireccion);
-
         ivAguja = findViewById(R.id.aguja);
 
         sensorManager = (SensorManager) this.getSystemService(SENSOR_SERVICE);
-        brujula = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION);
-
+        brujula = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION); // asignamos el sensor
+        // comprobamos que existe
         if (brujula != null) { // si es distinto de nulo significa que el sensor existe y funciona
             // registrar el escuchador del sensor
             sensorManager.registerListener(this, brujula, SensorManager.SENSOR_DELAY_NORMAL);
@@ -41,15 +41,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
     }
 
-
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         if (sensorEvent.sensor.getType() == Sensor.TYPE_ORIENTATION) {
-
-            int grados = (int) sensorEvent.values[0];
+            int grados = (int) sensorEvent.values[0]; // obtenemos los grados
             Log.d("PMDM", String.valueOf(grados));
-            tvGrados.setText(String.valueOf((int) sensorEvent.values[0]));
+            tvGrados.setText((int) sensorEvent.values[0] + "º"); // modificamos el texto de los grados
 
+            // los ifs anidados comprueban en que rango se encuentran los grados, en función de este, se modifica la dirección
             if (grados > 338 || grados <= 23) {
                 tvDireccion.setText("N");
             } else if (grados > 23 && grados <= 68) {
@@ -68,8 +67,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 tvDireccion.setText("NW");
             }
 
-            String gradosIvenrtido = "-" + grados;
-            ivAguja.setRotation(Float.parseFloat(gradosIvenrtido));
+            String gradosIvenrtido = "-" + grados; // ponemos los grados en negativo
+            ivAguja.setRotation(Float.parseFloat(gradosIvenrtido)); // rotamos el imageview de la aguja
 
         }
     }
