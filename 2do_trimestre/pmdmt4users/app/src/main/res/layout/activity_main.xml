@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Usuario"
+        android:text="Email"
         android:textSize="20dp"/>
 
     <EditText
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/etUsuario" />
+        android:id="@+id/etEmail" />
 
     <TextView
         android:layout_width="wrap_content"

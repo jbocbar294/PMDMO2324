@@ -6,7 +6,6 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -14,7 +13,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.BufferedReader;
@@ -34,24 +32,29 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     File archivoUsers;
     ArrayList<Usuario> listaUsuarios;
     BufferedReader br;
-    String linea, usuario, contrasenya;
+    String linea, email, contrasenya;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        // Vuelve a usar el fichero como en LoginActivity
         archivoUsers = new File(getFilesDir() + File.separator + "users.csv");
+        // Obtiene los valores del bundle
         Bundle bundle = getIntent().getExtras();
-        if (bundle != null) {
-            usuario = bundle.getString("usuario");
+        if (bundle != null) { // Si el bundle no está vacío...
+            // Almacena los valores en variables
+            email = bundle.getString("email");
             contrasenya = bundle.getString("contrasenya");
         }
+        // Guarda todos los usuarios del fichero en un arraylist
         listaUsuarios = new ArrayList<>();
         String[] datos = new String[5];
         try {
             br = new BufferedReader(new FileReader(archivoUsers));
-            while ((linea = br.readLine()) != null) {
+            while ((linea = br.readLine()) != null) { // Mientras pueda leer...
+                // Almacena los datos del usuario actual en un array
                 datos = linea.split(";");
+                // Añade un objeto Usuario al arraylist
                 listaUsuarios.add(new Usuario(datos[0], datos[1], datos[2], Integer.parseInt(datos[3]), datos[4]));
             }
         } catch (FileNotFoundException e) {
@@ -84,31 +87,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        for (Usuario usuarioActual : listaUsuarios) {
+        for (Usuario usuarioActual : listaUsuarios) { // Recorremos el arraylist de usuarios
+            // Llama al método getLocationFromAddress para obtener la latitud y longitud mediante un String.
             LatLng ubicacion = getLocationFromAddress(usuarioActual.getPoblacion());
-            if (ubicacion != null) {
+            if (ubicacion != null) { // Si la ubicación no es nula...
+                // Crea un MarkerOptions y le asignamos la ubicación y el usuario como título
                 MarkerOptions marker = new MarkerOptions()
                         .position(ubicacion)
                         .title(usuarioActual.getUsuario());
-                if (usuarioActual.getUsuario().equals(usuario) && usuarioActual.getContrasenya().equals(contrasenya)) {
+                // Si el usuario actual es con el que se inició sesión...
+                if (usuarioActual.getEmail().equals(email) && usuarioActual.getContrasenya().equals(contrasenya)) {
+                    // También le añade el snippet con la población, el email y el teléfono
                     marker.snippet(usuarioActual.getPoblacion() + "\n" +
                             usuarioActual.getEmail() + "\n" +
                             usuarioActual.getTelefono());
+                    // Mueve la posición a su ubicación y cambia el zoom
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(), 10));
                 }
-                mMap.addMarker(marker);
+                mMap.addMarker(marker); // Añade el marker
             } else {
                 Log.d(":::::NO ENCONTRADA", usuarioActual.getPoblacion());            }
         }
     }
 
+    // Método que devuelve un objeto LatLng a partir de un String usando Geocoder
     public LatLng getLocationFromAddress(String strAddress) {
         LatLng latLng = null;
         Geocoder geocoder = new Geocoder(this);
-
         try {
             List<Address> addresses = geocoder.getFromLocationName(strAddress, 1);
-
             if (addresses != null && !addresses.isEmpty()) {
                 Address address = addresses.get(0);
                 double latitude = address.getLatitude();
@@ -117,12 +124,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             } else {
                 Toast.makeText(this, "No se ha encontrado la ubicación.", Toast.LENGTH_SHORT).show();
             }
-
         } catch (IOException e) {
             e.printStackTrace();
             
         }
-
         return latLng;
     }
 }
