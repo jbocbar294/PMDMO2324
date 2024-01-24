@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="20dp">
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/botonAñadir"
+            android:text="Añadir" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="5dp"
+        android:paddingBottom="10dp">
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/sala"
+            android:columnCount="5"
+            android:rowCount="5">
+
+        </GridLayout>
+
+    </TableRow>
+
+</LinearLayout>

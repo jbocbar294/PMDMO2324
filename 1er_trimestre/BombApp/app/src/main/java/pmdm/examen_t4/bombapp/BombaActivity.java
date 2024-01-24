@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -118,5 +117,4 @@ public class BombaActivity extends AppCompatActivity {
             cronometro.setText(String.valueOf(values[0]));
         }
     }
-
 }

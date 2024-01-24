@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">pmdm-arraystrings</string>
+
+    <string-array name="animals">
+        <item>dog</item>
+        <item>cat</item>
+        <item>ant</item>
+        <item>cobra</item>
+        <item>armadillo</item>
+        <item>ape</item>
+    </string-array>
+</resources>
