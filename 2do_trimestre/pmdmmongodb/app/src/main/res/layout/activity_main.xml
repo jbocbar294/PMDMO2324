@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/etId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ID"
+        android:inputType="number"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/etNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etId"
+        android:layout_marginTop="8dp"
+        android:hint="Nombre"/>
+
+    <EditText
+        android:id="@+id/etEdad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etNombre"
+        android:layout_marginTop="8dp"
+        android:hint="Edad"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etEdad"
+        android:layout_marginTop="8dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"/>
+
+    <EditText
+        android:id="@+id/etTelefono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etEmail"
+        android:layout_marginTop="8dp"
+        android:hint="Teléfono"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/etTitulo1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etTelefono"
+        android:layout_marginTop="8dp"
+        android:hint="Título 1"/>
+
+    <EditText
+        android:id="@+id/etTitulo2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etTitulo1"
+        android:layout_marginTop="8dp"
+        android:hint="Título 2"/>
+
+    <TextView
+        android:id="@+id/tvNumeroElementos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etTitulo2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Total Elementos: "
+        android:textSize="18sp" />
+
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvNumeroElementos"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true">
+
+        <TableRow>
+            <Button
+                android:id="@+id/botonGet"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/etEdad"
+                android:layout_marginTop="16dp"
+                android:text="Buscar por ID"/>
+
+            <Button
+                android:id="@+id/botonInsert"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/etEdad"
+                android:layout_toEndOf="@+id/button1"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Insertar"/>
+        </TableRow>
+
+        <TableRow>
+            <Button
+                android:id="@+id/botonUpdate"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Actualizar"/>
+
+            <Button
+                android:id="@+id/botonDelete"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/button2"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Eliminar"/>
+        </TableRow>
+
+        <TableRow>
+            <Button
+                android:id="@+id/botonGetAll"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Obtener todos los elementos"
+                android:layout_span="2"/>
+        </TableRow>
+
+
+    </TableLayout>
+
+</RelativeLayout>
